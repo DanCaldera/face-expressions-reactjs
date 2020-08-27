@@ -25,12 +25,12 @@ export default function sketch(p) {
     await faceapi.loadAgeGenderModel(MODEL_URL)
     await faceapi.loadFaceExpressionModel(MODEL_URL)
 
-    p.createCanvas(1280, 720)
+    p.createCanvas(640, 480)
     const constraints = {
       video: {
         mandatory: {
-          minWidth: 1280,
-          minHeight: 720,
+          minWidth: 640,
+          minHeight: 480,
         },
         optional: [{ maxFrameRate: 40 }],
       },
@@ -40,7 +40,7 @@ export default function sketch(p) {
     capture = p.createCapture(constraints, () => {})
 
     capture.id('video_element')
-    capture.size(1280, 720)
+    capture.size(640, 480)
     capture.hide()
 
     cocoSsd
